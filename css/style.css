@@ -362,7 +362,8 @@ body {
 }
 .hero__slider .splide__slide {
   min-height: 34.375rem;
-  display: flex
+  display: flex;
+  overflow: hidden
 }
 .hero__slider .splide__slide::before {
   content: "";
@@ -407,12 +408,6 @@ body {
 .hero__slider .splide__pagination__page.is-active {
   -webkit-transform: scale(1.3)!important;
   transform: scale(1.3)!important
-}
-.hero__wrapper {
-  position: relative;
-  width: 100%;
-  display: flex;
-  overflow: hidden
 }
 .hero__bg {
   position: absolute;
