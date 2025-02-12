@@ -3527,7 +3527,7 @@
                 speed: 1e3,
                 pagination: true,
                 autoplay: true,
-                interval: 3e3,
+                interval: 5e3,
                 rewind: true,
                 drag: true
             });
