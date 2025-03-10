@@ -492,7 +492,6 @@
             }.bind(this));
         }
         selectInit(originalSelect, index) {
-            const _this = this;
             let selectItem = document.createElement("div");
             selectItem.classList.add(this.selectClasses.classSelect);
             originalSelect.parentNode.insertBefore(selectItem, originalSelect);
@@ -510,9 +509,6 @@
             this.selectBuild(originalSelect);
             originalSelect.dataset.speed = originalSelect.dataset.speed ? originalSelect.dataset.speed : this.config.speed;
             this.config.speed = +originalSelect.dataset.speed;
-            originalSelect.addEventListener("change", (function(e) {
-                _this.selectChange(e);
-            }));
         }
         selectBuild(originalSelect) {
             const selectItem = originalSelect.parentElement;
