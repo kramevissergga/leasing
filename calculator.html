@@ -5,13 +5,86 @@
 	<title>Уравтолізинг</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20250305234707">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250313175149">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 </head>
 
 <body>
+	<div id="popup-code" aria-hidden="true" class="popup popup--code">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="code-popup">
+					<button data-close class="code-popup__close close-popup"></button>
+					<div class="code-popup__label">
+						Вам було відправлено SMS-повідомлення <br>
+						ведіть будь-ласка код
+					</div>
+					<div class="code-popup__inputs">
+						<input type="text" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" id="otc-1" maxlength="1" required>
+						<input type="text" pattern="[0-9]" inputmode="numeric" id="otc-2" maxlength="1" required>
+						<input type="text" pattern="[0-9]" inputmode="numeric" id="otc-3" maxlength="1" required>
+						<input type="text" pattern="[0-9]" inputmode="numeric" id="otc-4" maxlength="1" required>
+						<input type="text" pattern="[0-9]" inputmode="numeric" id="otc-5" maxlength="1" required>
+					</div>
+					<button class="code-popup__button">
+						відправити код ще раз
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="popup-error" aria-hidden="true" class="popup popup--code">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="code-popup">
+					<button data-close class="code-popup__close close-popup"></button>
+					<div class="code-popup__label">
+						перевірте чи коректно вказано номер телефону
+						та будь-ласка надайте <a href="#">згоду
+							на обробку персональних даних</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="popup-call" aria-hidden="true" class="popup popup--code">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="call-popup">
+					<button data-close class="call-popup__close close-popup"></button>
+					<ul class="call-popup__list">
+						<li>
+							<p>
+								<b>ваш вибір ануїтет,</b> якщо бажаєте щомісяця мати <span>одну і ту ж суму платежу,</span> або, навіть,
+								<span>створити автоматичним платіж</span> в своєму клієнт-банку і сплата завжди буде вчасна.
+							</p>
+						</li>
+						<li>
+							<p>
+								<b>ваш вибір класичний графік,</b> якщо бажаєте отримати <span>помірний платіж</span> та сплатити
+								<span>меншу комісію</span>
+							</p>
+						</li>
+						<li>
+							<p>
+								<b>обиріть підсилений графік</b>, якщо є бажання пришвидшити виплату основної вартості авто, чим <span>в
+									декілька разів зменшити переплату</span>
+							</p>
+						</li>
+					</ul>
+					<p class="call-popup__text">
+						Надішліть нам <span>заявку на дзвінок</span> і ми підіберемо графік зручний саме вам,
+						врахує очікування та налаштується під вас.
+					</p>
+					<button class="call-popup__button button button--border">
+						чекаю на дзвінок
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="wrapper">
 		<main class="page-home">
 			<section class="page-hone__calculator calculator">
@@ -101,7 +174,7 @@
 								</div>
 							</div>
 							<div class="calculator__footer">
-								<button class="calculator__button button button--black">
+								<button data-popup="#popup-call" class="calculator__button button button--black">
 									разрахувати вигідний платіж
 								</button>
 								<div class="calculator__label">
@@ -161,7 +234,7 @@
 			</section>
 		</main>
 	</div>
-	<script src="js/app.min.js?_v=20250305234707"></script>
+	<script src="js/app.min.js?_v=20250313175149"></script>
 </body>
 
 </html>
