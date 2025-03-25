@@ -2960,10 +2960,10 @@ body::after {
   .form-section__checkbox a:hover {
     text-decoration-color: transparent
   }
-  .button:hover {
+  .button:not(:disabled):hover {
     background-color: #51c1bd
   }
-  .button--border:hover {
+  .button--border:not(:disabled):hover {
     background-color: #000;
     color: #fff
   }
