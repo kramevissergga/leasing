@@ -107,9 +107,6 @@ input {
 input[type=search] {
   -webkit-appearance: none
 }
-body {
-  background-color: #f4f4f4
-}
 .lock body {
   overflow: hidden;
   touch-action: none;
@@ -137,6 +134,12 @@ body {
   max-width: 73.75rem;
   margin: 0 auto;
   padding: 0 1.25rem
+}
+.page-home {
+  background-color: #f4f4f4
+}
+.page-home--white {
+  background-color: #fff
 }
 .select {
   min-width: 0;
@@ -168,7 +171,7 @@ body {
   display: flex;
   min-width: 0;
   align-items: center;
-  padding: 1.375rem 1.75rem 1.375rem 1.25rem;
+  padding: 1.25rem 1.875rem;
   gap: 1.25rem
 }
 .select__value>* {
@@ -1331,16 +1334,13 @@ body::after {
   grid-template-columns: 560fr 526fr;
   gap: 3.375rem
 }
-.calculator__radiobox {
-  padding: .625rem 0
-}
 .calculator__fields {
   display: flex;
   flex-direction: column;
   gap: 1.25rem
 }
 .calculator__fields:not(:last-child) {
-  margin-bottom: 3.625rem
+  margin-bottom: 3.375rem
 }
 .calculator__footer {
   display: flex;
@@ -1369,13 +1369,28 @@ body::after {
 }
 .calculator__button {
   padding: 1.375rem 1.25rem;
-  align-self: stretch
+  align-self: stretch;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 20rem
 }
 .calculator__label {
   text-align: center;
   font-size: .875rem;
   font-weight: 300;
-  max-width: 29.9375rem
+  max-width: 29.9375rem;
+  line-height: 1.2
+}
+.calculator__currency {
+  padding-left: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem 2.4375rem;
+  flex-wrap: wrap
+}
+.calculator__currency-label {
+  color: #333
 }
 .field {
   display: flex;
@@ -1412,7 +1427,7 @@ body::after {
   color: #16dbcc
 }
 .field__input input {
-  padding: 1.1875rem 0 1.1875rem 1.1875rem;
+  padding: 1.1875rem 0 1.1875rem 1.875rem;
   transition: all .3s
 }
 .field__input input:focus {
@@ -1463,7 +1478,7 @@ body::after {
   font-weight: 300;
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: .4375rem;
   cursor: pointer;
   padding-left: 1.875rem;
   position: relative
@@ -1497,20 +1512,20 @@ body::after {
 .radiobox {
   display: flex;
   align-items: center;
-  gap: 3.125rem;
-  justify-content: center;
+  gap: 2.4375rem;
+  justify-content: space-between;
   flex-wrap: wrap
 }
 .radiobox__item {
   display: flex;
   position: relative;
-  gap: .875rem;
+  gap: .625rem;
   align-items: center;
   cursor: pointer
 }
 .radiobox__item span {
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 2.5rem;
+  height: 2.5rem;
   position: relative;
   background: url(../img/icons/radio.svg) no-repeat center/contain
 }
@@ -1521,8 +1536,8 @@ body::after {
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  height: .625rem;
-  width: .625rem;
+  height: .85rem;
+  width: .85rem;
   border-radius: 50%;
   background-color: #16dbcc;
   opacity: 0;
@@ -1540,18 +1555,34 @@ body::after {
 }
 .aside-calc__header {
   display: flex;
-  gap: .625rem;
-  justify-content: space-between;
-  padding: 0 1.875rem
+  gap: 1.75rem;
+  justify-content: space-between
 }
 .aside-calc__header:not(:last-child) {
-  margin-bottom: 1.5625rem
+  margin-bottom: 1.4375rem
+}
+.aside-calc__info {
+  color: #ccc5c5;
+  font-size: .875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .625rem;
+  padding-right: 3.125rem
+}
+.aside-calc__info span {
+  flex-shrink: 0
+}
+.aside-calc__info:not(:last-child) {
+  margin-bottom: .625rem
 }
 .aside-calc__header-label {
   display: flex;
   flex-direction: column;
   gap: .6875rem;
   align-items: end;
+  text-align: right;
+  justify-content: space-between;
   min-height: 3.4375rem
 }
 ._disabled .aside-calc__header-label {
@@ -1561,10 +1592,11 @@ body::after {
   color: #333;
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.3
+  line-height: 1.3;
+  text-wrap: nowrap
 }
 .aside-calc__body {
-  padding: 2.5rem 1.875rem;
+  padding: 1.625rem 3.125rem 1.875rem;
   border-radius: .625rem;
   background: #fff;
   box-shadow: 0 .1875rem 2rem 0 rgba(0,0,0,.1);
@@ -1579,9 +1611,9 @@ body::after {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: .625rem;
   background-color: #16dbcc;
-  height: .5625rem
+  height: 100%
 }
 ._disabled .aside-calc__body::before {
   background-color: #d9d9d9
@@ -1596,7 +1628,11 @@ body::after {
   color: #ababab
 }
 .aside-calc__body dl div:not(:last-child) {
-  margin-bottom: 1.0625rem
+  margin-bottom: 1.375rem
+}
+.aside-calc__body dl dt {
+  line-height: 1.2;
+  max-width: 12.5625rem
 }
 .aside-calc__body dl dd {
   font-size: 1.25rem;
@@ -1609,24 +1645,32 @@ body::after {
 }
 .aside-calc__text {
   text-align: center;
-  font-size: .875rem;
-  margin-top: -.4375rem;
+  font-size: .75rem;
   line-height: 1.3
 }
+.aside-calc__text:not(:first-child) {
+  margin-top: .875rem
+}
+.aside-calc__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
 .aside-calc__label {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
   text-align: center
 }
 .aside-calc__label:not(:last-child) {
-  margin-bottom: 1rem
+  margin-bottom: 1.0625rem
 }
 .aside-calc__button {
   width: 100%;
-  padding: 1rem
+  padding: 1rem;
+  max-width: 20rem
 }
 .aside-calc__button:not(:last-child) {
-  margin-bottom: 1.5rem
+  margin-bottom: 1.1875rem
 }
 .aside-calc__button--blue {
   background-color: #16dbcc
@@ -2381,6 +2425,10 @@ body::after {
   .rates__block:nth-child(3) {
     display: none
   }
+  .calculator__body {
+    grid-template-columns: 1fr;
+    gap: 2.5rem
+  }
 }
 @media (max-width:61.99875em)and (any-hover:none) {
   .icon-menu {
@@ -2598,17 +2646,36 @@ body::after {
     padding-bottom: 2.75rem
   }
   .calculator__title:not(:last-child) {
-    margin-bottom: 3.6875rem
+    margin-bottom: 1.0625rem
   }
-  .calculator__body {
-    grid-template-columns: 1fr;
-    gap: 1.5rem
+  .calculator__button {
+    max-width: 17.5rem
+  }
+  .calculator__currency {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 0
+  }
+  .calculator__currency-label {
+    text-align: center
+  }
+  .aside-calc__info {
+    padding-right: 0
   }
   .aside-calc__text {
     font-size: .75rem
   }
   .aside-calc__label {
     font-size: 1.25rem
+  }
+  .aside-calc__label:not(:last-child) {
+    margin-bottom: .625rem
+  }
+  .aside-calc__button {
+    max-width: 17.5rem
+  }
+  .aside-calc__button:not(:last-child) {
+    margin-bottom: 1rem
   }
 }
 @media (max-width:43.74875em) {
@@ -2717,7 +2784,7 @@ body::after {
 @media (max-width:31.24875em) {
   .select__value {
     font-size: .875rem;
-    padding: 1.09375rem 1.25rem;
+    padding: 1rem 1.25rem;
     gap: .6875rem
   }
   .select__value:after {
@@ -2738,17 +2805,11 @@ body::after {
     width: 2.125rem;
     height: 3.125rem
   }
-  .calculator__radiobox {
-    padding: .625rem
-  }
-  .calculator__fields {
-    gap: .875rem
+  .calculator__footer {
+    gap: 1.25rem
   }
   .calculator__button {
     padding: 1rem 1.25rem
-  }
-  .calculator__label {
-    font-size: .75rem
   }
   .field {
     gap: .75rem
@@ -2757,18 +2818,20 @@ body::after {
     padding-right: 1.1875rem
   }
   .field__input input {
-    padding: .875rem 0 .875rem 1.1875rem;
+    padding: 1rem 0 1rem 1.25rem;
     font-size: .875rem
   }
   .radiobox {
-    justify-content: space-between;
     gap: .9375rem
   }
-  .radiobox__item {
-    gap: .4375rem
-  }
   .aside-calc__header {
-    padding: 0 1.3125rem
+    justify-content: center
+  }
+  .aside-calc__info {
+    font-size: .6875rem
+  }
+  .aside-calc__info:not(:last-child) {
+    margin-bottom: .875rem
   }
   .aside-calc__header-label {
     gap: .4375rem;
@@ -2781,13 +2844,10 @@ body::after {
     font-size: 1rem
   }
   .aside-calc__body {
-    padding: 1.875rem 1.25rem
-  }
-  .aside-calc__body:not(:last-child) {
-    margin-bottom: 1.375rem
+    padding: 1.25rem .6875rem 1.25rem .9375rem
   }
   .aside-calc__body dl div:not(:last-child) {
-    margin-bottom: .6875rem
+    margin-bottom: 1rem
   }
   .aside-calc__body dl dt {
     font-size: .875rem
@@ -2824,16 +2884,20 @@ body::after {
   }
   .field__checkbox {
     padding-left: .75rem;
-    gap: .3125rem;
-    font-size: .75rem
-  }
-  .field__checkbox::before {
-    width: .8125rem;
-    height: .8125rem;
-    font-size: .625rem
+    gap: .875rem
   }
   .aside-calc__body::before {
-    height: .375rem
+    width: .5625rem
+  }
+}
+@media (max-width:22.49875em) {
+  .radiobox__item span {
+    width: 1.875rem;
+    height: 1.875rem
+  }
+  .radiobox__item span::before {
+    width: .625rem;
+    height: .625rem
   }
 }
 @media (min-width:47.99875em)and (max-width:73.75em) {

@@ -5,7 +5,7 @@
 	<title>Уравтолізинг</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20250319135638">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250325125121">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -13,10 +13,11 @@
 
 <body>
 	<div class="wrapper">
-		<main class="page-home">
+		<main class="page-home page-home--white">
 			<section class="page-hone__calculator calculator">
 				<div class="calculator__container">
-					<h1 class="calculator__title section-title">ВИГІДНО У ЛІЗИНГ</h1>
+					<h1 class="calculator__title section-title">РОЗРАХУВАТИ
+						У ЛІЗИНГ</h1>
 					<div data-one-select class="calculator__body">
 						<form action="#" method="post" enctype="multipart/form-data" class="calculator__form">
 							<div class="calculator__fields">
@@ -46,23 +47,7 @@
 										<option value="14">Пункт №13</option>
 									</select>
 								</div>
-								<div class="calculator__radiobox radiobox">
-									<label class="radiobox__item">
-										<span></span>
-										<input type="radio" name="curr">
-										грн
-									</label>
-									<label class="radiobox__item">
-										<span></span>
-										<input checked type="radio" name="curr">
-										usd
-									</label>
-									<label class="radiobox__item">
-										<span></span>
-										<input type="radio" name="curr">
-										euro
-									</label>
-								</div>
+
 								<div class="calculator__field field">
 									<div class="field__input _accent">
 										<input type="text" value="0 usd" placeholder="18 888 888, euro *">
@@ -79,6 +64,28 @@
 									<div class="field__input">
 										<input type="text" value="36 місяців" placeholder="36 місяців *">
 										<div class="field__label">термін</div>
+									</div>
+								</div>
+								<div class="calculator__currency">
+									<div class="calculator__currency-label">
+										валюта фінансування
+									</div>
+									<div class="calculator__radiobox radiobox">
+										<label class="radiobox__item">
+											<span></span>
+											<input checked type="radio" name="curr">
+											грн
+										</label>
+										<label class="radiobox__item">
+											<span></span>
+											<input type="radio" name="curr">
+											usd
+										</label>
+										<label class="radiobox__item">
+											<span></span>
+											<input type="radio" name="curr">
+											euro
+										</label>
 									</div>
 								</div>
 								<div class="calculator__field field">
@@ -118,43 +125,50 @@
 						<div class="calculator__aside aside-calc">
 							<div class="aside-calc__header">
 								<div class="aside-calc__header-label">
-									Аванс
-									<span>30%</span>
+									перший
+									лізинговий платіж
+									<span>10 690 512 грн</span>
 								</div>
 								<div class="aside-calc__header-label">
-									Термін
+									термін
 									<span>36 міс.</span>
 								</div>
 								<div class="aside-calc__header-label">
-									Тип графіку
+									тип графіку
 									<span>ануїтет</span>
 								</div>
+							</div>
+							<div class="aside-calc__info">
+								вартість авто та витрат на реєстрацію
+								<span>
+									2 105 000 грн
+								</span>
 							</div>
 							<div class="aside-calc__body ">
 								<dl>
 									<div>
 										<dt>
-											Первинні витрати
+											аванс
 										</dt>
 										<dd>
-											<span>18 000</span> грн
+											<span>631 512</span> грн
 										</dd>
 									</div>
 									<div>
 										<dt>
-											Середній платіж*, міс.
+											комісія у складі першого лізингового платежу
 										</dt>
 										<dd>
-											<span>908 000</span> грн
+											<span>59 000</span> грн
 										</dd>
 									</div>
 									<div>
 										<dt>
-											Загальна вартість*
-											авто у лізинг
+											середній платіж
+											на місяць
 										</dt>
 										<dd>
-											<span>1 200 000</span> грн
+											<span>96 000</span> грн
 										</dd>
 									</div>
 								</dl>
@@ -170,9 +184,10 @@
 									чекаю на дзвінок
 								</button>
 								<div class="aside-calc__text">
-									Для забезпечення зручності сприйняття та оцінки суми платежу,
-									ми округлили її до найближчої гривні, вилучивши копійки.
-									Остаточна пропозиція може бути сформована після вивчення лізингоотримувача.
+									Зазначені платежі - орієнтовні.<br>
+									До платежів включено КАСКО, ОСЦПВ, ДСЦПВ, ДРОРМ.<br>
+									Додатково може бути включена система безпеки (GPS-трекер). <br>
+									Для точного розрахунку, будь ласка, зверніться у ТОВ “УКРАВТОЛІЗИНГ”.
 								</div>
 							</div>
 						</div>
@@ -181,7 +196,7 @@
 			</section>
 		</main>
 	</div>
-	<script src="js/app.min.js?_v=20250319135638"></script>
+	<script src="js/app.min.js?_v=20250325125121"></script>
 </body>
 
 </html>
