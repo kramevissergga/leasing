@@ -700,7 +700,8 @@
                 classSelectMultiple: "_select-multiple",
                 classSelectCheckBox: "_select-checkbox",
                 classSelectOptionSelected: "_select-selected",
-                classSelectPseudoLabel: "_select-pseudo-label"
+                classSelectPseudoLabel: "_select-pseudo-label",
+                classSelectPlaceholder: "select__placeholder"
             };
             this._this = this;
             if (this.config.init) {
@@ -834,6 +835,8 @@
         }
         getSelectTitleValue(selectItem, originalSelect) {
             let selectTitleValue = this.getSelectedOptionsData(originalSelect, 2).html;
+            let secondPlaceholder = "";
+            if (originalSelect.hasAttribute("data-second")) secondPlaceholder = `<span class="${this.selectClasses.classSelectPlaceholder}">${originalSelect.getAttribute("data-second")}</span>`;
             if (originalSelect.multiple && originalSelect.hasAttribute("data-tags")) {
                 selectTitleValue = this.getSelectedOptionsData(originalSelect).elements.map((option => `<span role="button" data-select-id="${selectItem.dataset.id}" data-value="${option.value}" class="_select-tag">${this.getSelectElementContent(option)}</span>`)).join("");
                 if (originalSelect.dataset.tags && document.querySelector(originalSelect.dataset.tags)) {
@@ -849,9 +852,9 @@
                 pseudoAttributeClass = ` ${this.selectClasses.classSelectPseudoLabel}`;
             }
             this.getSelectedOptionsData(originalSelect).values.length ? selectItem.classList.add(this.selectClasses.classSelectActive) : selectItem.classList.remove(this.selectClasses.classSelectActive);
-            if (originalSelect.hasAttribute("data-search")) return `<div class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}"><input autocomplete="off" type="text" placeholder="${selectTitleValue}" data-placeholder="${selectTitleValue}" class="${this.selectClasses.classSelectInput}"></span></div>`; else {
+            if (originalSelect.hasAttribute("data-search")) return `<div class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}">${secondPlaceholder}<input autocomplete="off" type="text" placeholder="${selectTitleValue}" data-placeholder="${selectTitleValue}" class="${this.selectClasses.classSelectInput}"></span></div>`; else {
                 const customClass = this.getSelectedOptionsData(originalSelect).elements.length && this.getSelectedOptionsData(originalSelect).elements[0].dataset.class ? ` ${this.getSelectedOptionsData(originalSelect).elements[0].dataset.class}` : "";
-                return `<button type="button" class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}"><span class="${this.selectClasses.classSelectContent}${customClass}">${selectTitleValue}</span></span></button>`;
+                return `<button type="button" class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}">${secondPlaceholder}<span class="${this.selectClasses.classSelectContent}${customClass}">${selectTitleValue}</span></span></button>`;
             }
         }
         getSelectElementContent(selectOption) {

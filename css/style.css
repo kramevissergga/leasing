@@ -205,6 +205,36 @@ input[type=search] {
   white-space: nowrap;
   order: 1
 }
+.select:has(.select__placeholder) .select__content {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s
+}
+.select:has(.select__placeholder)._select-active .select__content,
+.select:has(.select__placeholder)._select-open .select__content {
+  opacity: 1;
+  visibility: visible
+}
+.select__placeholder {
+  position: absolute;
+  top: 50%;
+  left: 1.875rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: all .3s;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  pointer-events: none
+}
+._select-open .select__placeholder {
+  top: -.1875rem;
+  -webkit-transform: translateY(-100%) scale(.8);
+  transform: translateY(-100%) scale(.8)
+}
+._select-active .select__placeholder {
+  opacity: 0;
+  visibility: hidden
+}
 .select__text {
   flex: 1 1 auto;
   overflow: hidden;
@@ -345,6 +375,12 @@ input[type=search] {
   background-color: #81c7b9;
   transition: all .3s
 }
+.button:disabled {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  color: #ababab;
+  cursor: default
+}
 .button--black {
   background-color: #000;
   color: #fff
@@ -355,9 +391,9 @@ input[type=search] {
   background-color: #fff;
   color: #000
 }
-.button:disabled {
-  background-color: #d9d9d9;
-  border-color: #d9d9d9;
+.button--border:disabled {
+  background-color: rgba(0,0,0,0);
+  border-color: #ababab;
   color: #ababab;
   cursor: default
 }
@@ -1595,8 +1631,11 @@ body::after {
   line-height: 1.3;
   text-wrap: nowrap
 }
+.aside-calc__content:not(:last-child) {
+  margin-bottom: 2.125rem
+}
 .aside-calc__body {
-  padding: 1.625rem 3.125rem 1.875rem;
+  padding: 1.5rem 2.5rem 1.875rem 1.875rem;
   border-radius: .625rem;
   background: #fff;
   box-shadow: 0 .1875rem 2rem 0 rgba(0,0,0,.1);
@@ -1604,7 +1643,7 @@ body::after {
   overflow: hidden
 }
 .aside-calc__body:not(:last-child) {
-  margin-bottom: 1.875rem
+  margin-bottom: 1.25rem
 }
 .aside-calc__body::before {
   content: "";
@@ -1612,7 +1651,7 @@ body::after {
   top: 0;
   left: 0;
   width: .625rem;
-  background-color: #16dbcc;
+  background-color: var(--color,#16dbcc);
   height: 100%
 }
 ._disabled .aside-calc__body::before {
@@ -1642,6 +1681,43 @@ body::after {
 }
 .aside-calc__body dl dd span {
   font-weight: 700
+}
+.aside-calc__body-header {
+  display: flex;
+  gap: .9375rem;
+  align-items: center;
+  justify-content: space-between
+}
+.aside-calc__body-header:not(:last-child) {
+  margin-bottom: 1.875rem
+}
+.aside-calc__body-image {
+  width: 10.625rem;
+  aspect-ratio: 170/43
+}
+.aside-calc__body-image img {
+  -o-object-position: left center;
+  object-position: left center
+}
+.aside-calc__body-label {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem
+}
+.aside-calc__body-label span {
+  color: #333;
+  font-size: .875rem
+}
+.aside-calc__body-label svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0
+}
+._disabled .aside-calc__body-label span {
+  color: #ababab
+}
+._disabled .aside-calc__body-label svg path {
+  stroke: #ababab
 }
 .aside-calc__text {
   text-align: center;
@@ -2436,6 +2512,9 @@ body::after {
   }
 }
 @media (max-width:47.99875em) {
+  .select__placeholder {
+    left: 1.25rem
+  }
   .select__option {
     font-size: .875rem;
     padding: 1rem 1.1875rem 1.1875rem 1.25rem
@@ -2662,6 +2741,28 @@ body::after {
   .aside-calc__info {
     padding-right: 0
   }
+  .aside-calc__content:not(:last-child) {
+    margin-bottom: 1.5rem
+  }
+  .aside-calc__body::before {
+    width: .375rem
+  }
+  .aside-calc__body-header:not(:last-child) {
+    margin-bottom: 1.625rem
+  }
+  .aside-calc__body-image {
+    width: 7.5rem
+  }
+  .aside-calc__body-label {
+    gap: .625rem
+  }
+  .aside-calc__body-label span {
+    font-size: .625rem
+  }
+  .aside-calc__body-label svg {
+    width: .875rem;
+    height: .875rem
+  }
   .aside-calc__text {
     font-size: .75rem
   }
@@ -2844,7 +2945,7 @@ body::after {
     font-size: 1rem
   }
   .aside-calc__body {
-    padding: 1.25rem .6875rem 1.25rem .9375rem
+    padding: 1.5625rem 1.25rem 1.625rem 1.125rem
   }
   .aside-calc__body dl div:not(:last-child) {
     margin-bottom: 1rem
@@ -2885,9 +2986,6 @@ body::after {
   .field__checkbox {
     padding-left: .75rem;
     gap: .875rem
-  }
-  .aside-calc__body::before {
-    width: .5625rem
   }
 }
 @media (max-width:22.49875em) {
