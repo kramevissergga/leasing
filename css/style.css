@@ -1751,6 +1751,127 @@ body::after {
 .aside-calc__button--blue {
   background-color: #16dbcc
 }
+.item-terms {
+  border-radius: .6944444444vw;
+  background: #fff;
+  box-shadow: 0 .1388888889vw 1.3888888889vw 0 rgba(0,0,0,.1);
+  display: flex;
+  flex-direction: column
+}
+.item-terms span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  line-height: 1.2;
+  font-size: 1.25vw;
+  font-weight: 500;
+  padding: .9722222222vw;
+  min-height: 4.9305555556vw
+}
+.item-terms span:not(:last-child) {
+  border-bottom: .0694444444vw solid #e5e5e5
+}
+.terms {
+  padding: 4.0972222222vw 0;
+  font-size: 1.1111111111vw
+}
+.terms__container {
+  max-width: 81.9444444444vw
+}
+.terms__hero:not(:last-child) {
+  margin-bottom: 5.8333333333vw
+}
+.terms__items {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 1.7361111111vw .6944444444vw
+}
+.terms__items:not(:last-child) {
+  margin-bottom: 4.1666666667vw
+}
+.terms__schledue:not(:last-child) {
+  margin-bottom: 4.1666666667vw
+}
+.terms__bottom {
+  max-width: 64.5833333333vw
+}
+.terms__bottom .terms__items {
+  grid-template-columns: repeat(4,1fr);
+  row-gap: .9722222222vw;
+  padding-right: 1.7361111111vw
+}
+.terms__bottom .terms__items:not(:last-child) {
+  margin-bottom: 2.5vw
+}
+.terms__bottom .terms__item span:not(:first-child) {
+  min-height: 0;
+  flex-grow: 0
+}
+.hero-terms__image {
+  border-radius: 1.3888888889vw;
+  overflow: hidden;
+  position: relative
+}
+.hero-terms__image:not(:last-child) {
+  margin-bottom: 2.8472222222vw
+}
+.hero-terms__title {
+  font-size: 2.5vw;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between
+}
+.schledue-terms__title {
+  font-size: 1.6666666667vw;
+  font-weight: 500
+}
+.schledue-terms__title:not(:last-child) {
+  margin-bottom: 2.7777777778vw
+}
+.schledue-terms__table:not(:last-child) {
+  margin-bottom: 2.0833333333vw
+}
+.schledue-terms__table table {
+  width: 100%;
+  border-radius: .6944444444vw;
+  background: #fff;
+  box-shadow: 0 .1388888889vw 1.3888888889vw 0 rgba(0,0,0,.1);
+  border-collapse: collapse
+}
+.schledue-terms__table table tr:not(:last-child) {
+  border-bottom: .0694444444vw solid #e5e5e5
+}
+.schledue-terms__table table td,
+.schledue-terms__table table th {
+  padding: .9722222222vw;
+  text-align: center;
+  font-size: 1.25vw;
+  font-weight: 500;
+  line-height: 1.22
+}
+.schledue-terms__table table td:not(:last-child),
+.schledue-terms__table table th:not(:last-child) {
+  border-right: .0694444444vw solid #e5e5e5
+}
+.schledue-terms__table table td.--bold,
+.schledue-terms__table table th.--bold {
+  font-weight: 800
+}
+.schledue-terms__table table td:last-child {
+  padding-right: 41px;
+  text-align: right
+}
+.schledue-terms__table table tbody tr:first-child {
+  border-top: .0694444444vw solid #e5e5e5
+}
+.label-terms {
+  font-size: 1.25vw;
+  font-weight: 500;
+  line-height: 1.23
+}
 .splide__container {
   box-sizing: border-box;
   position: relative
