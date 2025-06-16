@@ -154,9 +154,11 @@ input[type=search] {
   background-color: #fff;
   cursor: pointer;
   width: 100%;
+  transition: all .3s;
   border-radius: .625rem;
   color: #a4a4a4;
-  box-shadow: 0 .125rem 1.25rem 0 rgba(0,0,0,.1)
+  box-shadow: 0 .125rem 1.25rem 0 rgba(0,0,0,.1);
+  border: .0625rem solid transparent
 }
 ._select-active .select__title {
   color: #333
@@ -167,19 +169,22 @@ input[type=search] {
   border-bottom-color: transparent;
   clip-path: 0 -1.25rem -1.25rem -1.25rem
 }
+._accent .select:not(._select-open) .select__title {
+  border-color: #16dbcc!important
+}
 .select__value {
   display: flex;
   min-width: 0;
   align-items: center;
   padding: 1.25rem 1.875rem;
-  gap: 1.25rem
+  gap: 1.25rem;
+  transition: all .3s
 }
 .select__value>* {
   flex: 1 1 auto
 }
 .select__value:after {
   content: "";
-  color: #4e4f53;
   transition: all .3s;
   display: block;
   order: 3;
@@ -191,12 +196,22 @@ input[type=search] {
   -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg)
 }
+._accent .select:not(._select-open) .select__value {
+  color: #16dbcc!important
+}
+._accent .select:not(._select-open) .select__value::after {
+  background-image: url(../img/icons/check-active.svg)
+}
 .select__value._select-pseudo-label::before {
   content: attr(data-pseudo-label);
   color: #a4a4a4;
   text-align: center;
   font-size: .875rem;
-  order: 2
+  order: 2;
+  transition: all .3s
+}
+._accent .select:not(._select-open) .select__value._select-pseudo-label::before {
+  color: #16dbcc!important
 }
 .select__content {
   flex: 1 1 auto;
@@ -1444,22 +1459,22 @@ body::after {
   transition: border-color .3s;
   border: .0625rem solid transparent
 }
-.field__input._accent {
+._accent .field__input {
   border-color: #16dbcc
 }
-.field__input._accent input {
+._accent .field__input input {
   color: #16dbcc
 }
-.field__input._accent input::-webkit-input-placeholder {
+._accent .field__input input::-webkit-input-placeholder {
   color: #16dbcc
 }
-.field__input._accent input:-ms-input-placeholder {
+._accent .field__input input:-ms-input-placeholder {
   color: #16dbcc
 }
-.field__input._accent input::-ms-input-placeholder {
+._accent .field__input input::-ms-input-placeholder {
   color: #16dbcc
 }
-.field__input._accent input::placeholder {
+._accent .field__input input::placeholder {
   color: #16dbcc
 }
 .field__input input {
