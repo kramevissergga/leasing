@@ -768,6 +768,7 @@
             originalSelect.hasAttribute("data-search") ? this.searchActions(selectItem) : null;
             originalSelect.hasAttribute("data-open") ? this.selectAction(selectItem) : null;
             this.selectDisabled(selectItem, originalSelect);
+            originalSelect.hasAttribute("data-search") ? this.searchActions(selectItem) : null;
         }
         selectsActions(e) {
             const targetElement = e.target;
@@ -831,7 +832,6 @@
             const selectItemTitle = this.getSelectElement(selectItem, this.selectClasses.classSelectTitle).selectElement;
             if (selectItemTitle) selectItemTitle.remove();
             selectItemBody.insertAdjacentHTML("afterbegin", this.getSelectTitleValue(selectItem, originalSelect));
-            originalSelect.hasAttribute("data-search") ? this.searchActions(selectItem) : null;
         }
         getSelectTitleValue(selectItem, originalSelect) {
             let selectTitleValue = this.getSelectedOptionsData(originalSelect, 2).html;
@@ -852,10 +852,8 @@
                 pseudoAttributeClass = ` ${this.selectClasses.classSelectPseudoLabel}`;
             }
             this.getSelectedOptionsData(originalSelect).values.length ? selectItem.classList.add(this.selectClasses.classSelectActive) : selectItem.classList.remove(this.selectClasses.classSelectActive);
-            if (originalSelect.hasAttribute("data-search")) return `<div class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}">${secondPlaceholder}<input autocomplete="off" type="text" placeholder="${selectTitleValue}" data-placeholder="${selectTitleValue}" class="${this.selectClasses.classSelectInput}"></span></div>`; else {
-                const customClass = this.getSelectedOptionsData(originalSelect).elements.length && this.getSelectedOptionsData(originalSelect).elements[0].dataset.class ? ` ${this.getSelectedOptionsData(originalSelect).elements[0].dataset.class}` : "";
-                return `<button type="button" class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}">${secondPlaceholder}<span class="${this.selectClasses.classSelectContent}${customClass}">${selectTitleValue}</span></span></button>`;
-            }
+            const customClass = this.getSelectedOptionsData(originalSelect).elements.length && this.getSelectedOptionsData(originalSelect).elements[0].dataset.class ? ` ${this.getSelectedOptionsData(originalSelect).elements[0].dataset.class}` : "";
+            return `<button type="button" class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}">${secondPlaceholder}<span class="${this.selectClasses.classSelectContent}${customClass}">${selectTitleValue}</span></span></button>`;
         }
         getSelectElementContent(selectOption) {
             const selectOptionData = selectOption.dataset.asset ? `${selectOption.dataset.asset}` : "";
@@ -920,7 +918,11 @@
         }
         setOptions(selectItem, originalSelect) {
             const selectItemOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
-            selectItemOptions.innerHTML = this.getOptions(originalSelect);
+            let optionsHTML = "";
+            if (originalSelect.hasAttribute("data-search")) optionsHTML += `<div class="select__input-wrap"><input autocomplete="off" type="text" placeholder="Пошук..." class="${this.selectClasses.classSelectInput}"></div>`;
+            optionsHTML += this.getOptions(originalSelect);
+            selectItemOptions.innerHTML = optionsHTML;
+            console.log(optionsHTML);
         }
         setOptionsPosition(selectItem) {
             const originalSelect = this.getSelectElement(selectItem).originalSelect;
@@ -1010,7 +1012,8 @@
         }
         searchActions(selectItem) {
             this.getSelectElement(selectItem).originalSelect;
-            const selectInput = this.getSelectElement(selectItem, this.selectClasses.classSelectInput).selectElement;
+            console.log(selectItem);
+            const selectInput = selectItem.querySelector(`input`);
             const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
             const selectOptionsItems = selectOptions.querySelectorAll(`.${this.selectClasses.classSelectOption} `);
             const _this = this;

@@ -261,6 +261,8 @@ input[type=search] {
 }
 .select__options {
   color: #000;
+  border-radius: 0 0 .625rem .625rem;
+  overflow: hidden;
   position: absolute;
   top: calc(100% - .0625rem);
   min-width: 100%;
@@ -281,13 +283,50 @@ input[type=search] {
   bottom: 0!important;
   right: 0!important
 }
+.select__input-wrap {
+  text-align: left;
+  cursor: pointer;
+  background-color: #fff;
+  padding: .625rem 1.25rem;
+  color: inherit;
+  min-width: 0;
+  position: relative;
+  z-index: 2
+}
+.select__input-wrap:last-child {
+  border-radius: 0 0 .625rem .625rem
+}
+.select__input {
+  padding: .6875rem 1.25rem;
+  color: #333;
+  font-size: .875rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: .625rem;
+  background: #fff;
+  box-shadow: 0 .125rem 1.25rem 0 rgba(0,0,0,.1)
+}
+.select__input::-webkit-input-placeholder {
+  color: #a4a4a4
+}
+.select__input:-ms-input-placeholder {
+  color: #a4a4a4
+}
+.select__input::-ms-input-placeholder {
+  color: #a4a4a4
+}
+.select__input::placeholder {
+  color: #a4a4a4
+}
 .select__option {
   width: 100%;
   text-align: left;
   cursor: pointer;
   background-color: #fff;
-  padding: 1rem 1.25rem;
-  color: inherit;
+  padding: 1rem 2.5rem;
+  color: inherit
+}
+.select__option:not(:first-child) {
   border-top: .0625rem solid #e6e6e6
 }
 .select__option:last-child {
@@ -2649,9 +2688,13 @@ body::after {
   .select__placeholder {
     left: 1.25rem
   }
-  .select__option {
+  .select__input-wrap {
     font-size: .875rem;
     padding: 1rem 1.1875rem 1.1875rem 1.25rem
+  }
+  .select__option {
+    font-size: .875rem;
+    padding: .875rem 2.125rem
   }
   .splide__pagination {
     bottom: 1.3125rem!important;
